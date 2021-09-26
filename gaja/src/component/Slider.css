@@ -1,22 +1,23 @@
 *{
     box-sizing: border-box;
     margin: 0;
+}
+
+.video{
+    
+    position: relative;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-around;
     align-items: center;
 }
 
-:root {
-    --heights: 70vh;
-    --widths: 100%
-}
-
 .slider-container{
-
-    height: var(--heights);
-    width: var(--widths);
+    height: 500px;
+    width: 75%;
     position: relative;
     margin: auto;
     overflow: hidden;
-
 }
 
 .active{
@@ -27,15 +28,15 @@
     display: none;    
 }
 
-.slides{
-    height: var(--heights);
-    width: var(--widths);
+.slide{
+    height: 500px;
+    width: 100%;
     position: relative;
 }
 
 .slide-image {
+    height: 500px;
     width: 100%;
-    height: 100%;
     position: absolute;
     object-fit: cover;
 }
@@ -44,18 +45,28 @@
 .slide-text{
     width: 100%;
     height: 100%;
-    color: black;
-    font-size: 50px;
+    color: #313131;
+    font-size: 40px;
     position: absolute;
     text-align: center;
     top: 40%;
     z-index: 10;
 }
 
+.link{
+    color: #313131;
+    text-decoration: none;
+}
+
+.link1{
+    color: #228B22;
+    text-decoration: none;
+}
+
 .slide-text{
     top: 65%;
     font-size: 1.5rem;
-    color: grey;
+    color: black;
 }
 
 .prev, 
@@ -64,21 +75,21 @@
     cursor: pointer;
     z-index: 100;
     position: absolute;
-    top: 60%;
+    top: 30%;
     width: auto;
     padding: 1rem;
     margin-top: 4rem;
-    font-size: 30px;
+    font-size: 55px;
     font-weight: bold;
     border-radius: 0px 5px 5px 0px;
 }
 
 .prev:hover,
 .next:hover{
-    /* color: white;
-    background-color: rgba(0, 0, 0, 0.6); */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
     color: grey;
-    transition: all 0.5s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .next{
@@ -86,7 +97,7 @@
     border-radius: 5px 0px 0px 5px;
 }
 
-.all-dots{
+/* .all-dots{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -109,4 +120,4 @@
 .active-dot,
 .dot:hover{
     background-color: rgba(255, 255, 255, 0.5);
-}
+} */

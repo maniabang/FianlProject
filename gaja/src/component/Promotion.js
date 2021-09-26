@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./Footer.module.css";
+import './Slider.css';
 
-export default function Footer() {
+export default function Promotion() {
     return (
         <div>
             <br />
             <h1>PROMOTION</h1>
             <br />
-            <div className={styles.video}>
+            <div className="video">
                 <div>
                     <iframe width="350" height="250" src="https://www.youtube.com/embed/MjK8_3_uSFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>

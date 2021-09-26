@@ -1,0 +1,81 @@
+.main-main1{
+    height: 100vh;
+    background-image : url("../img/taxi.png");
+    background-size : cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+}
+
+.main-main2{
+    height: 100vh;
+    background-image : url("../img/black.png");
+    background-size : cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+}
+
+.main-main3{
+    height: 100vh;
+    background-image : url("../img/green.png");
+    background-size : cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+}
+
+.main-main4{
+    height: 100vh;
+    background-image : url("../img/sanding.png");
+    background-size : cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+}
+
+.main-circle{
+    width : 428px;
+    height : 428px;
+    border-radius: 50%;
+    position: relative;
+    background-color: rgba(50, 40, 48, 0.2);
+    z-index: 2;
+    margin: 20% 0 0 0;
+}
+
+.circle-word {
+    display: block;
+    font-size: 50px;
+    padding-top: 30%;
+    color: white;
+    text-align: center;
+}
+
+.circle-word2 {
+    display: block;
+    font-size: 20px;
+    padding-top: 10%;
+    color: white;
+    text-align: center;
+}
+
+.circle-word3 {
+    display: block;
+    font-size: 20px;
+    padding-top: 10%;
+    color:  #228B22;
+    text-align: center;
+}
+
+.circle-search{
+    position: relative;
+    left: 410px;
+    top:-60px;
+    z-index: 3;
+    cursor: pointer;
+}
