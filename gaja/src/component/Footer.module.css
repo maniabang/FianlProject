@@ -15,22 +15,9 @@
   }
   
   .video{
-    list-style-type: none; 
-    float: left;
-    position: relative;  
-    margin-top: 10%;
-    margin-left: 5%;
-  }
-  .button2{
-    list-style-type: none; 
-    float: left;
     position: relative;
-    margin-top: 1%; 
-    margin-left: 25%;
-  }
-  
-  .footer {
-    margin: 0;
+    margin: 0 auto; 
+    display: flex;
     justify-content: space-around;
     align-items: center;
   }
@@ -39,14 +26,8 @@
     display: flex;
     justify-content: space-around;
     position: absolute;
-    bottom: 40%;
   }
 
-  .car{
-    margin-top: 150px;
-    margin-left: 20%;
-  }
-  
   
 
   

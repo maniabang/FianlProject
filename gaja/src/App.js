@@ -1,11 +1,12 @@
-import Footer from "./component/Footer";
-import Options from "./component/Options";
+
+import Promotion from "./component/Promotion";
+import Slider from "./component/Slider";
 
 function App() {
   return (
     <div className="App">
-      <Footer />
-      <Options />
+      <Promotion />
+      <Slider />
     </div>
 
   );
