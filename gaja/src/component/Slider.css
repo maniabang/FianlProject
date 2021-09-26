@@ -14,7 +14,7 @@
 
 .slider-container{
     height: 500px;
-    width: 75%;
+    width: 80%;
     position: relative;
     margin: auto;
     overflow: hidden;
@@ -53,6 +53,12 @@
     z-index: 10;
 }
 
+.slide-text{
+    top: 65%;
+    font-size: 1.5rem;
+    color: black;
+}
+
 .link{
     color: #313131;
     text-decoration: none;
@@ -61,12 +67,6 @@
 .link1{
     color: #228B22;
     text-decoration: none;
-}
-
-.slide-text{
-    top: 65%;
-    font-size: 1.5rem;
-    color: black;
 }
 
 .prev, 

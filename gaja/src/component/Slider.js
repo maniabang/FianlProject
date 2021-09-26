@@ -9,7 +9,7 @@ import './Slider.css';
 
 const len = imageSlider.length -1;
 
-export default function Slider(props) {
+export default function Slider() {
     const [activeIndex, setActiveIndex] = useState(0);
     
 
