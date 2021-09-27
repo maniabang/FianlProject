@@ -26,7 +26,7 @@ export default [
   },
 
   {
-    title: <Link to="/sanding" className="link">SANDING</Link>,
+    title: <Link to="/sending" className="link">SENDING</Link>,
     description: "TO AIRPORT",
     urls: img4,
 

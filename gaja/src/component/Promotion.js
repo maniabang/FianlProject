@@ -1,11 +1,13 @@
 import React from "react";
 import './Slider.css';
+import { Link } from "react-router-dom";
 
 export default function Promotion() {
     return (
         <div>
             <br />
             <h1>PROMOTION</h1>
+            <Link to="/board_main" className="link"> <span><h1>BOARD</h1></span></Link>
             <br />
             <div className="video">
                 <div>

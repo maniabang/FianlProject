@@ -4,7 +4,11 @@ import Slider from "./component/Slider";
 import Taxi from "./component/Taxi";
 import Black from "./component/Black";
 import Green from "./component/Green";
-import Sanding from "./component/Sanding";
+import Sending from "./component/Sending";
+import Board_main from "./component/board/Board_main";
+import Board_submit from "./component/board/Board_submit";
+import Board_list from "./component/board/Board_list";
+
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -25,8 +29,17 @@ function App() {
           <Route path="/green">
             <Green />
           </Route>
-          <Route path="/sanding">
-            <Sanding />
+          <Route path="/sending">
+            <Sending />
+          </Route>
+          <Route path="/board_main">
+            <Board_main />
+          </Route>
+          <Route path="/board_submit">
+            <Board_submit />
+          </Route>
+          <Route path="/board_list">
+            <Board_list />
           </Route>
         </Switch>
       </div>
