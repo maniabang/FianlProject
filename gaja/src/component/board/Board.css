@@ -1,5 +1,4 @@
 .board{
-<<<<<<< HEAD
     margin-top: 15%;
     font-size: 30px;
     justify-content: space-around;
@@ -62,12 +61,10 @@
   .off td {
     background: #eee;
     color: #ccc;
-=======
     text-align: center;
     margin-top: 15%;
     font-size: 30px;
     font-family: '';
->>>>>>> 50ea356d5bdcfff84355c46e450cc57c1720b30b
   }
   
   .form-wrapper{
@@ -83,11 +80,6 @@
     cursor: pointer;
     border-radius: 7px;
     border: 1px;
-<<<<<<< HEAD
-    color: transparent;
-    text-shadow: 0 0 0 black;
-=======
->>>>>>> 50ea356d5bdcfff84355c46e450cc57c1720b30b
   }
   
   .text-area {
@@ -99,7 +91,7 @@
     border-radius: 6px;
     border: 1px;
   }
-<<<<<<< HEAD
+
   button {
     padding: 10px;
     font-weight: bold;
@@ -119,10 +111,6 @@
   }
   
   .btn_submit {
-=======
-  
-  .submit-button {
->>>>>>> 50ea356d5bdcfff84355c46e450cc57c1720b30b
     padding: 10px;
     font-weight: bold;
     font-size: 18px;
