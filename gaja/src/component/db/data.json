@@ -3,35 +3,24 @@
     "board" : [
 
         {
-<<<<<<< HEAD
+
             "driverId": 1234,
             "driverName": "adam",
-=======
-            "driverId": "1234",
->>>>>>> 50ea356d5bdcfff84355c46e450cc57c1720b30b
             "title": "hi",
             "content": "hello",
             "isDone": false
         },
         {
-<<<<<<< HEAD
+
             "driverId": 1324,
             "driverName": "jack",
             "title": "hello",
-=======
-            "driverId": "1324",
-            "title": "hi",
->>>>>>> 50ea356d5bdcfff84355c46e450cc57c1720b30b
             "content": "hello",
             "isDone": false
         },
         {
-<<<<<<< HEAD
             "driverId": 4321,
             "driverName": "paul",
-=======
-            "driverId": "4321",
->>>>>>> 50ea356d5bdcfff84355c46e450cc57c1720b30b
             "title": "hi",
             "content": "hello",
             "isDone": false
