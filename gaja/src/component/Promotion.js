@@ -7,7 +7,7 @@ export default function Promotion() {
         <div>
             <br />
             <h1>PROMOTION</h1>
-            <Link to="/board_main" className="link"> <span><h1>BOARD</h1></span></Link>
+            <Link to="/board_main" className="link3"> <span><h1>BOARD</h1></span></Link>
             <br />
             <div className="video">
                 <div>

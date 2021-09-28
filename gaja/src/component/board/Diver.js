@@ -10,7 +10,21 @@ export default function Driver({board}){
     }
 
     function toggleDone(){
-        setIsDone(!isDone);
+        // setIsDone(!isDone);
+        fetch(`http://localhost:3001/board?drvierId=${board.driverId}` ,{
+            method:'PUT',
+            headers: {
+                "Content-Type":"applicataion/json",
+            },
+            body: JSON.stringify({
+                ...board,
+                isDone: !isDone,
+            }),
+        }).then(res =>{
+           if (res.ok){
+               setIsDone(isDone);
+           } 
+        });
     }
 
     return(
