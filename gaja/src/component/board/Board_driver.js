@@ -1,6 +1,6 @@
 import Driver from "./Diver";
 import { useParams } from "react-router";
-import useFetch from "../hooks/useFetch";
+import useFetch from "./hooks/useFetch";
 
 export default function Board_driver(){
 

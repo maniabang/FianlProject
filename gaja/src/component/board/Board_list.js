@@ -1,8 +1,7 @@
-
 import { Link } from "react-router-dom";
 import './Board.css';
 import '../Slider.css';
-import useFetch from "../hooks/useFetch";
+import useFetch from "./hooks/useFetch";
 
 export default function Board_list () {
 
