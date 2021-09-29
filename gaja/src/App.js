@@ -8,6 +8,8 @@ import Sending from "./component/Sending";
 import Board_main from "./component/board/Board_main";
 import Board_submit from "./component/board/Board_submit";
 import Board_list from "./component/board/Board_list";
+import Board_driver from "./component/board/Board_driver";
+import EmptyPage from "./component/board/EmptyPage";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -40,6 +42,12 @@ function App() {
           </Route>
           <Route path="/board_list">
             <Board_list />
+          </Route>
+          <Route path="/name/:name">
+            <Board_driver />
+          </Route>
+          <Route>
+            <EmptyPage />
           </Route>
         </Switch>
       </div>
