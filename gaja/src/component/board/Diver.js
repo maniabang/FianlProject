@@ -1,9 +1,12 @@
 import { useState } from "react";
 
-export default function Driver({board}){
+export default function Driver({board: b}){
     
+    const [board, setBoard] = useState(b);
     const [isShow, setIsShow] = useState(false);
-    const [isDone, setIsDone] = useState(board.isDone)
+    const [isDone, setIsDone] = useState(board.isDone);
+
+    console.log(board.driverId);
 
     function toggleShow(){
         setIsShow(!isShow);
@@ -11,10 +14,10 @@ export default function Driver({board}){
 
     function toggleDone(){
         // setIsDone(!isDone);
-        fetch(`http://localhost:3001/board?drvierId=${board.driverId}` ,{
+        fetch(`http://localhost:3001/board/${board.id}` ,{
             method:'PUT',
             headers: {
-                "Content-Type":"applicataion/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 ...board,
@@ -22,9 +25,25 @@ export default function Driver({board}){
             }),
         }).then(res =>{
            if (res.ok){
-               setIsDone(isDone);
+               setIsDone(!isDone);
            } 
         });
+    }
+
+    function del(){
+        if(window.confirm('삭제 하시겠습니까?')){
+            fetch(`http://localhost:3001/board/${board.id}`,{
+                method: 'DELETE',
+            }).then(res => {
+                if(res.ok) {
+                    setBoard({ id: 0})
+                }
+            })
+        }
+    }
+
+    if (board.id === 0){
+        return null;
     }
 
     return(
@@ -39,7 +58,7 @@ export default function Driver({board}){
             <button onClick={toggleShow} className="btn_submit">
             {isShow ? 'HIDE':'SHOW'}
             </button>
-            <button className="btn_del">DELETE</button>
+            <button onClick={del} className="btn_del">DELETE</button>
         </td>
     </tr>
 
