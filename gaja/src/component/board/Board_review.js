@@ -29,7 +29,7 @@ export default function Board_review() {
         }).then(res =>{
            if (res.ok){
                alert("생성이 완료 되었습니다.");
-               history.push(`/board/${nameRef.current.value}`)
+               history.push(`/board_submit`)
            } 
         });
     }
