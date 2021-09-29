@@ -4,7 +4,7 @@ export default function EmptyPage(){
     return(
         <>
             <h2>잘못된 접근입니다.</h2>
-            <Link to="/board_main">돌아가기</Link>
+            <Link to="/board_list">돌아가기</Link>
         </>
     );
 }
