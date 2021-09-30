@@ -5,9 +5,10 @@ import useFetch from "./hooks/useFetch";
 import './Board.css';
 import '../Main.css';
 
-export default function Board_review() {
+export default function Board_edit() {
 
     const driver = useFetch("http://localhost:3001/driver");
+    const board = useFetch("http://localhost:3001/board");
     const history = useHistory();
 
     function onSubmit(e){
@@ -15,7 +16,7 @@ export default function Board_review() {
 
         fetch(`http://localhost:3001/board/` ,{
 
-            method:'POST',
+            method:'PUT',
             headers: {
                 "Content-Type": "application/json",
             },
@@ -52,8 +53,12 @@ export default function Board_review() {
                                 ))}
                             </select>
                         </div>
-                        <input className="title-input" type='text' placeholder='Title' ref={titleRef}/>
-                        <textarea className="text-area" placeholder='Content' ref={contentRef}/>
+                        <input className="title-input" type='text' placeholder='Title' ref={titleRef}>
+
+                        </input>
+                        <textarea className="text-area" placeholder='Content' ref={contentRef}>
+                            {board.content}
+                        </textarea>
                     </div>
                     <button className="submit-button">SUBMIT</button>
                 </div>
