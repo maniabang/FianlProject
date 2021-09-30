@@ -11,29 +11,35 @@ export default function Board_driver(){
 
     return(
         <>
-            <h1>{name}</h1>
-            <table>
-                <tbody>
-                    <tr style={{fontWeight: "bold"}}>
-                        <td>
-                            TITLE
-                        </td>
-                        <td>
-                            CONTENT
-                        </td>
-                        <td>
-                            OPTION
-                        </td>
-                    </tr>
-                    {boards.map(board=>(
-                        <Driver board={board} key={board.id} />
-                    ))}
-                </tbody>
-            </table>
-            <br />
-            <br />
-            <Link to="/" className="btn_link">HOME</Link>&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/board_list" className="btn_link">LIST</Link>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div>
+                <h1>{name}</h1>
+                <table>
+                    <tbody>
+                        <tr style={{fontWeight: "bold"}}>
+                            <td>
+                                
+                            </td>
+                            <td>
+                                TITLE
+                            </td>
+                            <td>
+                                CONTENT
+                            </td>
+                            <td>
+                                OPTION
+                            </td>
+                        </tr>
+                        {boards.map(board=>(
+                            <Driver board={board} key={board.id} />
+                        ))}
+                    </tbody>
+                </table>
+                <br />
+                <br />
+                <Link to="/" className="btn_link">HOME</Link>&nbsp;&nbsp;&nbsp;&nbsp;
+                <Link to="/board_list" className="btn_link">LIST</Link>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+
         </>
     );
 }

@@ -9,7 +9,7 @@ import Board_review from "./component/board/Board_review";
 import Board_submit from "./component/board/Board_submit";
 import Board_list from "./component/board/Board_list";
 import Board_driver from "./component/board/Board_driver";
-
+import Board_edit from "./component/board/Board_edit";
 import EmptyPage from "./component/board/EmptyPage";
 
 
@@ -48,6 +48,9 @@ function App() {
           </Route>
           <Route path="/board/:name">
             <Board_driver />
+          </Route>
+          <Route path="/board_review/:id">
+            <Board_edit />
           </Route>
           <Route>
             <EmptyPage />
