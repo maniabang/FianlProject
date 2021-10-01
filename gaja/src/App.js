@@ -15,7 +15,8 @@ import EmptyPage from "../../../FinalProject-2/gaja/src/component/board/EmptyPag
 
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Contacts from "../../../FinalProject-2/gaja/src/firebase_component/Contacts";
+
+import Contacts from "./firebase_component/Contacts";
 
 function App() {
   return (
