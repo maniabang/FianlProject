@@ -55,7 +55,7 @@ export default function Board_review() {
                         <input className="title-input" type='text' placeholder='Title' ref={titleRef}/>
                         <textarea className="text-area" placeholder='Content' ref={contentRef}/>
                     </div>
-                    <button className="submit-button">SUBMIT</button>
+                    <button className="btn_submit">SUBMIT</button>
                 </div>
             </div>
         </form>

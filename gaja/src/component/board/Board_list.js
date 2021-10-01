@@ -8,18 +8,24 @@ export default function Board_list () {
     const driver = useFetch("http://localhost:3001/driver") ;
 
     return (
-
-        <div className="main-main5">
-            <ul className="list">
-                <li>
-                    <Link to="/board_review">Create</Link>
-                </li>
+        <div className="main-main6">
+            <div className="div_div">
+                <div>
+                    <Link to="/board_review">
+                        <button className="btn_create">Create</button>
+                    </Link>
+                </div>
+                <div className="btn_driver_list">
+                    Driver LIST       
+                </div>
                 {driver.map(driver =>(
-                    <li key={driver.id}>
-                        <Link to ={`/board/${driver.driverName}`}>{driver.driverName}</Link>
-                    </li>
+                    <div key={driver.id} className="div_driver">
+                        <Link to ={`/board/${driver.driverName}`}>
+                            <button className="btn_driver">{driver.driverName}</button>
+                        </Link>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 
