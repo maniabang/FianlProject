@@ -48,13 +48,6 @@
       "content": "hi",
       "isDone": false,
       "id": 9
-    },
-    {
-      "driverName": "adam",
-      "title": "정말",
-      "content": "어렵다",
-      "isDone": false,
-      "id": 10
     }
   ]
 }

@@ -15,49 +15,15 @@ import EmptyPage from "./component/board/EmptyPage";
 
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Contacts from "./firebase_component/Contacts";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route exact path="/">
-            <Promotion />
-            <Slider />
-          </Route>
-          <Route path="/taxi">
-            <Taxi />
-          </Route>
-          <Route path="/black">
-            <Black />
-          </Route>
-          <Route path="/green">
-            <Green />
-          </Route>
-          <Route path="/sending">
-            <Sending />
-          </Route>
-          <Route path="/board_review">
-            <Board_review />
-          </Route>
-          <Route path="/board_submit">
-            <Board_submit />
-          </Route>
-          <Route path="/board_list">
-            <Board_list />
-          </Route>
-          <Route path="/board/:name">
-            <Board_driver />
-          </Route>
-          <Route path="/board_review/:id">
-            <Board_edit />
-          </Route>
-          <Route>
-            <EmptyPage />
-          </Route>
-        </Switch>
+    <div className="row"> 
+      <div className="col-md-8 offset-md-1">
+        <Contacts />
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 

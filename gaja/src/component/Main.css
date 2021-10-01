@@ -48,6 +48,15 @@
     z-index: 0;
 }
 
+.main-main6{
+    height: 100vh;
+    background-image : url("../img/keyboard.png");
+    background-size : cover;
+    position: relative;
+    display: flex;
+    z-index: 0;
+}
+
 .main-circle{
     width : 428px;
     height : 428px;
