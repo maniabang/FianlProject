@@ -39,6 +39,7 @@ export default function Board_driver(){
                 <Link to="/" className="btn_link">HOME</Link>&nbsp;&nbsp;&nbsp;&nbsp;
                 <Link to="/board_list" className="btn_link">LIST</Link>&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
+
         </>
     );
 }
