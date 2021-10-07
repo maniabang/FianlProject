@@ -1,43 +1,57 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Image, FlatList } from 'react-native';
 import tw from "tailwind-react-native-classnames";
 import NavOptions from "../components/NavOptions";
 import NavFavourites from "../components/NavFavourites";
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from '@env';
 import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
 import { setDestination, setOrigin } from "../slices/navSlice";
+import { Icon } from "react-native-elements";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const HomeScreen = () => {
 
     const dispatch = useDispatch();
+    const navigation = useNavigation();
 
     return (
         <SafeAreaView style={tw`bg-white h-full`}>
-            <View style={tw`p-5`}>
-                <Image
-                    style={{
-                        width: 80, 
-                        height: 100,
-                        resizeMode: "contain",
-                    }} 
-                    source={{
-                        uri: "https://links.papareact.com/gzs",
-                    }}
-                />
+            <View style={tw`p-6 top-2`}>
+                <View style={styles.container}>
+                    <Image
+                        style={{
+                            width: 80,
+                            height: 100,
+                            resizeMode: "contain",
+                        }}
+                        source={
+                            require("../img/GajaLogo3.png")
+                        }
+                    />
+                    <TouchableOpacity style={styles.register}>
+                        <Icon   
+                            style={tw`p-2 bg-black rounded-full w-10 mt-4`}
+                            name="team"
+                            color="white"
+                            type="antdesign"
+                        />
+                    </TouchableOpacity>
+                </View>
 
                 <GooglePlacesAutocomplete
 
-                    placeholder="Where From" 
+                    placeholder="Where From"
                     styles={{
                         container: {
-                            flex: 0,    
+                            flex: 0,
                         },
                         textInput: {
                             fontSize: 18,
                         },
                     }}
-                    onPress={(data, details = null) =>{
+                    onPress={(data, details = null) => {
                         dispatch(
                             setOrigin({
                                 location: details.geometry.location,
@@ -69,7 +83,11 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-    text: {
-        color: "blue",
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
-}); 
+    register: {
+        marginTop: 20,
+    },
+});
