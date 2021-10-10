@@ -9,7 +9,7 @@ import { Icon } from 'react-native-elements';
 import { useNavigation } from "@react-navigation/native";
 import { selectTravelTimeInformation } from '../slices/navSlice';
 import Intl from 'intl';
-import 'intl/locale-data/jsonp/en-GB';
+import 'intl/locale-data/jsonp/ko-KR';
 
 const data =[
     {
@@ -32,7 +32,7 @@ const data =[
     },
 ];
 
-const SURGE_CHARGE_RATE = 1.5;
+const SURGE_CHARGE_RATE = 0.09;
 
 const RideOptionsCard = () => {
 
@@ -77,14 +77,14 @@ const RideOptionsCard = () => {
                             <Text>{travelTimeInformation?.duration.text} Travel Time</Text>
                         </View>
                         <Text style={tw`text-xl`}>
-                            {new Intl.NumberFormat(['en-GB'], {
+                            {new Intl.NumberFormat(['ko-KR'], {
                                 style: 'currency',
-                                currency: 'GBP',
+                                currency: 'KRW',
                             }).format(
                                 ((travelTimeInformation?.duration?.value * 
-                                SURGE_CHARGE_RATE * multiplier) * 100) ? 
+                                SURGE_CHARGE_RATE * multiplier)*300) ? 
                                 (travelTimeInformation?.duration?.value * 
-                                SURGE_CHARGE_RATE * multiplier) * 100 : 0
+                                SURGE_CHARGE_RATE * multiplier)*300 : 0
                             )}
                         </Text>
                     </TouchableOpacity>
