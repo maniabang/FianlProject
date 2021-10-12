@@ -81,9 +81,4 @@ const HomeScreen = () => {
 
 export default HomeScreen
 
-const styles = StyleSheet.create({
-    text: {
-        color: 'blue'
-    }
-
-});
+const styles = StyleSheet.create({});

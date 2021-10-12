@@ -4,6 +4,7 @@ import FormLabel from './FormLabel'
 import tw from 'tailwind-react-native-classnames'
 import FormInput from './FormInput'
 import FormButton from './FormButton'
+import { useNavigation } from '@react-navigation/native';
 
 const FormInputGroup = ({children}) =>{
     return(
@@ -13,8 +14,10 @@ const FormInputGroup = ({children}) =>{
     )
 }
 
-export default function Form() {
+export default function Form({signup, onSubmit}) {
 
+    const navigation = useNavigation(),
+    screen = signup ? "Home" : "Register";
     const [email, setEmail] = useState(""),
     [password, setPassword] = useState("")
     return (
@@ -32,10 +35,15 @@ export default function Form() {
                 <FormLabel text="Password" />
                 <FormInput 
                     onChangeText={(text)=>setPassword(text)}
-                    value= {password} 
+                    value= {password}
+                    secureTextEntry={true} 
                 />
             </FormInputGroup>
-            <FormButton primary={true} text="Login" />
+            <FormButton primary={true} text={!signup ? "Login": "Register"} 
+            onPress={()=>onSubmit(email, password)}/>
+
+            <FormButton primary={false} onPress={() => navigation.navigate(screen)}
+            text={signup ? "Login": "Register"} />
         </View>
     )
 }
