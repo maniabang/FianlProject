@@ -167,7 +167,8 @@ const RideOptionsCard = () => {
                             <TouchableOpacity
                                 activeOpacity={0.7}
                                 style={styles.buttonStyle}
-                                onPress={() => alert(defaultRating)}    
+                                // onPress={() => alert(defaultRating)}
+                                onPress={() => {navigation.navigate("ReviewScreen")}}    
                             >
                                 <Text
                                     style={tw`text-white font-semibold text-lg`}

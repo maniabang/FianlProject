@@ -1,13 +1,16 @@
 import React from 'react';
 import { KeyboardAvoidingView, Platform } from 'react-native';
 import { Provider } from 'react-redux';
-import HomeScreen from './screens/HomeScreen';
-import MapScreen from './screens/MapScreen';
 import { store } from './store';
 import { SafeAreaProvider } from 'react-native-safe-area-context'; 
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+import MapScreen from './screens/MapScreen';
+import ReviewScreen from './screens/ReviewScreen';
+import ReviewListScreen from './screens/ReviewListScreen';
+import RewriteReviewScreen from './screens/RewriteReviewScreen';
 import AccountScreen from './screens/AccountScreen';
 import CreateScreen from './screens/CreateScreen';
 import LoginScreen from './screens/LoginScreen';
@@ -40,7 +43,28 @@ export default function App() {
                   headerShown: false,
                 }}
               />
-                            <Stack.Screen 
+              <Stack.Screen 
+                  name='ReviewScreen'
+                  component={ReviewScreen}
+                  options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen 
+                  name='ReviewListScreen'
+                  component={ReviewListScreen}
+                  options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen 
+                  name='RewriteReviewScreen'
+                  component={RewriteReviewScreen}
+                  options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen 
                 name='AccountScreen'
                 component={AccountScreen}
                 options={{
