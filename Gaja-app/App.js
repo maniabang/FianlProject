@@ -16,6 +16,10 @@ import CreateScreen from './screens/CreateScreen';
 import LoginScreen from './screens/LoginScreen';
 import UserScreen from './screens/UserScreen';
 import InfoScreen from './screens/InfoScreen';
+import ConnectScreen from './screens/ConnectScreen';
+import ReviewList from './screens/ReviewList';
+import Review from './screens/Review';
+import RewriteReview from './screens/RewriteReview';
 
 export default function App() {
 
@@ -39,27 +43,6 @@ export default function App() {
               />
               <Stack.Screen name='MapScreen'
                   component={MapScreen}
-                  options={{
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen 
-                  name='ReviewScreen'
-                  component={ReviewScreen}
-                  options={{
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen 
-                  name='ReviewListScreen'
-                  component={ReviewListScreen}
-                  options={{
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen 
-                  name='RewriteReviewScreen'
-                  component={RewriteReviewScreen}
                   options={{
                   headerShown: false,
                 }}
@@ -98,6 +81,32 @@ export default function App() {
                options={{
                  headerShown: false,
                }}
+              />
+                           <Stack.Screen
+                name="ConnectScreen"
+                component={ConnectScreen}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen 
+                name="ReviewList"
+                component={ReviewList}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen 
+                name="Review"
+                component={Review}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen 
+                name='RewriteReview'
+                component={RewriteReview}
+                options={{headerShown: false,}}
               />
             </Stack.Navigator>
           </KeyboardAvoidingView>

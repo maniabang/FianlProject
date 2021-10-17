@@ -9,13 +9,12 @@ import './Slider.css';
 
 const len = imageSlider.length -1;
 
-export default function Slider() {
+export default function Slider({flag}) {
     const [activeIndex, setActiveIndex] = useState(0);
-    
-
+    console.log(flag);
     return(
         
-        <div className="slider-container">
+        <div className={flag ? 'test' : 'slider-container'}>
             <br />
 
             <SliderContent activeIndex={activeIndex} imageSlider={imageSlider}

@@ -2,12 +2,11 @@ import React from "react";
 import './Slider.css';
 import { Link } from "react-router-dom";
 
-export default function Promotion() {
+export default function Promotion({flag}) {
     return (
-        <div>
+        <div className={flag ? 'test' : ''}>
             <br />
-            <h1>PROMOTION</h1>
-            <Link to="/board_list" className="link3"> <span><h1>BOARD</h1></span></Link>
+            <Link to="/board_list" className="link3"><h1 style={{marginLeft:100}}>BOARD</h1></Link>
             <br />
             <div className="video">
                 <div>

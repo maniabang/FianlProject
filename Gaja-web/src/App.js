@@ -1,12 +1,9 @@
-
-import Contacts from "./firebase_component/Contacts";
-
+import './App.css';
+import View from './component/View';
 function App() {
   return (
-    <div className="row"> 
-      <div className="col-md-8 offset-md-2">
-        <Contacts />
-      </div>
+    <div className="App">
+      <View />
     </div>
   );
 }

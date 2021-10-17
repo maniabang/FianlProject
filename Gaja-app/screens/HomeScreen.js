@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, View, SafeAreaView, Image } from 'react-native'
+import { StyleSheet, View, SafeAreaView, Image, Text, TouchableOpacity } from 'react-native'
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -9,11 +9,23 @@ import { useDispatch } from 'react-redux';
 import NavFavourites from '../components/NavFavourites';
 import AccountOptions from '../components/AccountOptions';
 import {auth} from '../firebase';
-import LoginOption from '../components/LoginOption'
+import LoginOption from '../components/LoginOption';
 
-const HomeScreen = () => {
+const HomeScreen = ({route}) => {
     const dispatch = useDispatch();
     const [login, setLogin] = useState(false);
+    const [push, setPush] = useState(false);
+    
+    useEffect(() => {
+        if(route.params?.push) {
+            const test = route.params.push;
+            setPush(test);
+        }
+        if(push) {
+            alert('12만원 결제가 완료되었습니다.');
+        }
+    }, [route.params, push])
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
           if(user) {
@@ -76,9 +88,11 @@ const HomeScreen = () => {
                 <NavFavourites />
             </View>
         </SafeAreaView>
+        
     )
 }
 
 export default HomeScreen
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+});

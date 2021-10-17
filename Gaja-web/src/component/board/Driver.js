@@ -6,7 +6,6 @@ export default function Driver({board: b}){
 
     const [isDone, setIsDone] = useState(board.isDone);
 
-    // const [isShow, setIsShow] = useState(false);
     // 숨김 기능
     // function toggleShow(){
     //     setIsShow(!isShow);
@@ -30,7 +29,6 @@ export default function Driver({board: b}){
            } 
         });
     }
-
 
     function del(){
         if(window.confirm('삭제 하시겠습니까?')){

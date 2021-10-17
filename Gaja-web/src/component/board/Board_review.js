@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import useFetch from "./hooks/useFetch";
 
 import './Board.css';
-import '../Main.css';
+import '../Serve.css';
 
 export default function Board_review() {
 

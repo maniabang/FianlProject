@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Board.css';
-import '../Main.css';
+import '../Serve.css';
 
 export default function Board_submit() {
     return (
