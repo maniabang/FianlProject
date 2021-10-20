@@ -3,11 +3,13 @@ import { Image, SafeAreaView, Text, View, Animated } from "react-native";
 import {database, ref} from '../firebase';
 import { useNavigation } from '@react-navigation/native';
 import { LogBox } from "react-native";
+import { auth } from "../firebase";
 
 LogBox.ignoreAllLogs();
 const dbRef = database.ref();
 let driver;
 let props;
+
 
 dbRef.child('Clients').child('test').get().then((snapshot) => {
   if(snapshot.exists()) {
@@ -20,6 +22,7 @@ dbRef.child('Clients').child('test').get().then((snapshot) => {
 });
 
 const ConnectScreen = ({route}) => {
+
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
   const [img, setImg] = useState('');

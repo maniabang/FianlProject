@@ -13,7 +13,7 @@ const ReviewList = () => {
 
     function delreviewlist(key){
         database
-        .ref('리뷰목록/test/' + key)
+        .ref(`리뷰목록/${id}/` +key)
         .set(null);
         alert('삭제되었습니다.')
       }
@@ -108,6 +108,15 @@ const styles = StyleSheet.create({
         letterSpacing: 0.25,
         color: 'white',
       },
+      text2: {
+        fontSize: 16,
+        lineHeight: 21,
+        fontWeight: 'bold',
+        letterSpacing: 0.25,
+        color: 'white',
+        marginLeft: '25%',
+        marginTop: '12%'
+      },
       review:{
         padding:5,
         fontSize: 20,
@@ -116,5 +125,4 @@ const styles = StyleSheet.create({
         width:"90%",
         marginLeft:'4%',
       }
-      
 })

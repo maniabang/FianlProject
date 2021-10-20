@@ -21,9 +21,10 @@ export default function review() {
   const [title, setTitle] = useState("");
   const [pass, setPass] = useState("");
   const [contents, setContents] = useState("");
-  const [id, setId] = useState(auth.currentUser?.email.split('@')[0]);
+  const [id] = useState(auth.currentUser?.email.split('@')[0]);
   const [img, setImg] = useState('');
   const [rating, setRating] = useState("");
+  
   // 데이터 불러오기
   const navigation = useNavigation();
 
@@ -42,7 +43,7 @@ export default function review() {
 
   function reviewlist() {
     database
-      .ref('리뷰목록/' + auth.currentUser.email.split('@')[0])
+      .ref(`리뷰목록/${id}`)
       .push({
         title: title,
         pass: pass,
@@ -51,13 +52,13 @@ export default function review() {
         regdate: new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, ''),
       });
   }
-  /////////////////////////////////////////////////////////////////////////////////////////////////
+
   // Modal useState
   const [visible, setVisible] = useState(false);
 
   // Rating Component
   const [defaultRating, setDefaultRating] = useState('2');
-  const [maxRating, setmaxRating] = useState(['1', '2', '3', '4', '5']);
+  const [maxRating] = useState(['1', '2', '3', '4', '5']);
 
   const starImgFilled = "../assets/star_filled.png";
   const starImgCorner = "../assets/star_corner.png";
@@ -125,10 +126,10 @@ export default function review() {
       </Modal>
     );
   };
-  
+
   return (
     <SafeAreaView>
-      <View style={{ marginTop: '20%' }}>
+      <View style={{ marginTop: '10%' }}>
         <TextInput
           placeholder="title"
           value={title}
@@ -196,18 +197,17 @@ export default function review() {
             </TouchableOpacity>
           </TouchableOpacity>
         </View>
-
-      </View>
-      <View>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            reviewlist();
-            navigation.navigate("ReviewList");
-          }}
-        >
-          <Text style={styles.text}>저장</Text>
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => {
+              reviewlist();
+              navigation.navigate("ReviewList");
+            }}
+          >
+            <Text style={styles.text}>저장</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -245,12 +245,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 8,
     width: 300,
-    height: 38,
     backgroundColor: "black",
     borderRadius: 10,
-    marginTop: 15,
-    top: -70,
-    left: 46
+    left: 48,
+    marginTop: 10,
   },
   button2: {
     alignItems: "center",
