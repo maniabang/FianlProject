@@ -32,7 +32,7 @@ const data = [
 
 let price = 0;
 
-const SURGE_CHARGE_RATE = 1.5;
+const SURGE_CHARGE_RATE = 0.01;
 
 const RideOptionsCard = () => {
     const navigation = useNavigation();
@@ -81,7 +81,8 @@ const RideOptionsCard = () => {
                                 style:'currency',
                                 currency: 'KRW'
                             }).format(
-                                ((travelTimeInformation?.duration?.value * SURGE_CHARGE_RATE * multiplier) * 6) ? (travelTimeInformation?.duration?.value * SURGE_CHARGE_RATE * multiplier) * 4 : 0
+                                ((travelTimeInformation?.duration?.value * SURGE_CHARGE_RATE * multiplier) * 2000) ? 
+                                (travelTimeInformation?.duration?.value * SURGE_CHARGE_RATE * multiplier) * 2000 : 0
                             )}
                         </Text>
                     </TouchableOpacity>

@@ -11,7 +11,7 @@ const AccountScreen = () => {
     <SafeAreaView style={tw`bg-white h-full`}> 
       <View>
         <Image style={{width:200, height:200, resizeMode:'contain', left:'23%'}} source={require('./gaja.png')}></Image>
-        </View>
+      </View>
       <View style={styles.borderOutlineL}>
         <TouchableOpacity onPress={() => {navigation.navigate('LoginScreen')}} style={styles.buttonL}>
           <Text style={styles.textL}>로그인</Text>

@@ -7,11 +7,11 @@ import { auth } from "../firebase";
 
 LogBox.ignoreAllLogs();
 const dbRef = database.ref();
+const id = auth.currentUser?.email.split('@')[0];
 let driver;
 let props;
 
-
-dbRef.child('Clients').child('test').get().then((snapshot) => {
+dbRef.child('Clients').child('madmanno').get().then((snapshot) => {
   if(snapshot.exists()) {
     driver = snapshot.val();
   } else {
@@ -60,7 +60,7 @@ const ConnectScreen = ({route}) => {
 
 
 
-  ref.child('test/driver2.jpeg').getDownloadURL().then(function(url) {
+  ref.child('/test').getDownloadURL().then(function(url) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'blob';
     xhr.onload = function(event) {

@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import { SafeAreaView, Button, Image, StyleSheet} from 'react-native';
+import { SafeAreaView, Button, Image, StyleSheet, Text} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as Firebase from 'firebase';
 import { ActivityIndicator } from 'react-native';
 import  {firebaseConfig} from '../firebase';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const InfoScreen = () => {
@@ -53,7 +54,7 @@ const InfoScreen = () => {
       xhr.send(null);
     });
 
-    const ref = Firebase.storage().ref().child('/test/test2');
+    const ref = Firebase.storage().ref().child('/test');
     const snapshot = ref.put(blob);
 
     snapshot.on(Firebase.storage.TaskEvent.STATE_CHANGED,
@@ -79,8 +80,17 @@ const InfoScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Image source={{uri:image ? image : null}} style={{width:'100%', height:'40%'}} />
-      <Button title="이미지를 선택해주세요" color='black' onPress={pickImage} />
-      {!uploading?<Button title='이미지 업로드' color='black' onPress={uploadImage} />:<ActivityIndicator size='large' />}
+        <TouchableOpacity style={styles.button} onPress={pickImage}>
+          <Text style={styles.text}>
+            이미지를 선택해주세요
+          </Text>
+        </TouchableOpacity>
+        {!uploading?  
+        <TouchableOpacity style={styles.button} onPress={uploadImage}>
+          <Text style={styles.text}>
+            이미지 업로드
+          </Text>
+        </TouchableOpacity> : <ActivityIndicator size='large' />}
     </SafeAreaView>
   )
 }
@@ -93,5 +103,21 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor:"white",
     alignItems: 'center',
-  }
+  },
+  button: {
+    width: 300,
+    alignItems: 'center',
+    paddingVertical: 8,
+    backgroundColor: 'black',
+    borderRadius:8,
+    marginTop:10,
+    marginLeft:5,
+  },
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  },
 })

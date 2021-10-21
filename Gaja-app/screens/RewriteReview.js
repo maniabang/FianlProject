@@ -19,7 +19,7 @@ import { ref } from '../firebase';
 
 export default function review() {
   const [title, setTitle] = useState("");
-  const [pass, setPass] = useState("");
+  // const [pass, setPass] = useState("");
   const [contents, setContents] = useState("");
   const [id] = useState(auth.currentUser?.email.split('@')[0]);
   const [img, setImg] = useState('');
@@ -28,7 +28,7 @@ export default function review() {
   // 데이터 불러오기
   const navigation = useNavigation();
 
-  ref.child('test/driver2.jpeg').getDownloadURL().then(function (url) {
+  ref.child('/test').getDownloadURL().then(function (url) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'blob';
     xhr.onload = function (event) {
@@ -46,7 +46,7 @@ export default function review() {
       .ref(`리뷰목록/${id}`)
       .push({
         title: title,
-        pass: pass,
+        // pass: pass,
         contents: contents,
         rating: rating,
         regdate: new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, ''),
@@ -129,19 +129,26 @@ export default function review() {
 
   return (
     <SafeAreaView>
-      <View style={{ marginTop: '10%' }}>
+      <View style={tw`bg-white h-full`}>
+        <View style={tw`top-3`}>
+          <Image 
+            style={{width:100, height:100, 
+            resizeMode:'contain', left:'10%', top:'20%'}} 
+            source={require('./gaja.png')}>
+          </Image>
+        </View>
         <TextInput
           placeholder="title"
           value={title}
           onChangeText={(text) => setTitle(text)}
           style={styles.input}
         />
-        <TextInput
+        {/* <TextInput
           placeholder="pass"
           value={pass}
           onChangeText={(text) => setPass(text)}
           style={styles.input}
-        />
+        /> */}
         <TextInput
           placeholder="contents"
           value={contents}
@@ -183,7 +190,6 @@ export default function review() {
                   setRating(defaultRating);
                   setVisible(false);
                 }}
-
               >
                 <Text
                   style={tw`text-white font-semibold text-lg`}
@@ -216,10 +222,10 @@ export default function review() {
 const styles = StyleSheet.create({
   input: {
     borderWidth: 2,
-    height: "15%",
+    height: "7%",
     width: "80%",
     borderRadius: 15,
-    marginTop: 20,
+    marginTop: 50,
     marginLeft: "10%",
     fontSize: 15,
     paddingHorizontal: 15,

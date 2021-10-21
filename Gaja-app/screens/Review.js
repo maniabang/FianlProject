@@ -19,7 +19,7 @@ import { ref } from '../firebase';
 
 export default function review({ route }) {
   const [title, setTitle] = useState("");
-  const [pass, setPass] = useState("");
+  //  const [pass, setPass] = useState("");
   const [contents, setContents] = useState("");
   const [rating, setRating] = useState("");
   const [id] = useState(auth.currentUser?.email.split('@')[0]);
@@ -27,7 +27,7 @@ export default function review({ route }) {
   const [img, setImg] = useState('');
   const navigation = useNavigation();
 
-  ref.child('test/driver2.jpeg').getDownloadURL().then(function (url) {
+  ref.child('/test').getDownloadURL().then(function (url) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'blob';
     xhr.onload = function (event) {
@@ -45,7 +45,7 @@ export default function review({ route }) {
     var postData = {
       title: title,
       contents: contents,
-      pass: pass,
+      // pass: pass,
       rating: rating,
       regdate: new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, '')
     }
@@ -131,26 +131,35 @@ export default function review({ route }) {
 
   return (
     <SafeAreaView>
-      <View style={{ marginTop: '10%' }}>
+      <View style={tw`bg-white h-full`}>
+        <View style={tw`top-3`}>
+          <Image 
+            style={{width:100, height:100, 
+            resizeMode:'contain', left:'10%', top:'20%'}} 
+            source={require('./gaja.png')}>
+          </Image>
+        </View>
         <TextInput
           placeholder="title"
           value={title}
           onChangeText={(text) => setTitle(text)}
           style={styles.input}
         />
-        <TextInput
+        {/* <TextInput
           placeholder="pass"
           value={pass}
           onChangeText={(text) => setPass(text)}
           style={styles.input}
-        />
+        /> */}
         <TextInput
           placeholder="contents"
           value={contents}
           onChangeText={(text) => setContents(text)}
           style={styles.inputReview}
-          multiline={true}
+        // multiline={true} => ios 상단배치
+        // style={{textAlignVertical: "top"}} =>
         />
+        <TextInput value={rating} style={{ width: 0, height: 0 }} />
         <View style={styles.center}>
           <TouchableOpacity>
             <ModalOptions visible={visible}>
@@ -170,7 +179,7 @@ export default function review({ route }) {
                 />
               </View>
               <Text style={{ marginVertical: 30, fontSize: 15, textAlign: 'center', fontWeight: 'bold' }}>
-                Good Bye!{"\n"}How was your trip?
+                운행은 편한 하셨는지요?
               </Text>
               <CustomRatingBar />
               <Text style={styles.textStyle}>
@@ -205,7 +214,6 @@ export default function review({ route }) {
             }}
           >
             <Text style={styles.text}>수정</Text>
-
           </TouchableOpacity>
         </View>
       </View>
@@ -216,10 +224,10 @@ export default function review({ route }) {
 const styles = StyleSheet.create({
   input: {
     borderWidth: 2,
-    height: "15%",
+    height: "7%",
     width: "80%",
     borderRadius: 15,
-    marginTop: 20,
+    marginTop: 50,
     marginLeft: "10%",
     fontSize: 15,
     paddingHorizontal: 15,
