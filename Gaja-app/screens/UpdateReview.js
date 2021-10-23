@@ -12,20 +12,32 @@ import {
   Animated,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
-import { database } from "../firebase";
+import { database, ref } from "../firebase";
 import tw from "tailwind-react-native-classnames";
+import { AntDesign } from '@expo/vector-icons';
 import { auth } from "../firebase";
-import { ref } from '../firebase';
 
-export default function review() {
+const dbRef = database.ref();
+let reviewUpdate;
+
+dbRef.child('리뷰목록').child('maniabang').get().then((snapshot) => {
+  if(snapshot.exists()) {
+    reviewUpdate = snapshot.val();
+  } else {
+    console.log('No data available');
+  }
+}).catch((error) => {
+  console.error(error);
+});
+
+export default function review({ route }) {
   const [title, setTitle] = useState("");
-  // const [pass, setPass] = useState("");
+  //  const [pass, setPass] = useState("");
   const [contents, setContents] = useState("");
-  const [id] = useState(auth.currentUser?.email.split('@')[0]);
-  const [img, setImg] = useState('');
   const [rating, setRating] = useState("");
-  
-  // 데이터 불러오기
+  const [id] = useState(auth.currentUser?.email.split('@')[0]);
+  const [data, setData] = useState("");
+  const [img, setImg] = useState('');
   const navigation = useNavigation();
 
   ref.child('/test').getDownloadURL().then(function (url) {
@@ -42,23 +54,26 @@ export default function review() {
   });
 
   function reviewlist() {
-    database
-      .ref(`리뷰목록/${id}`)
-      .push({
-        title: title,
-        // pass: pass,
-        contents: contents,
-        rating: rating,
-        regdate: new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, ''),
-      });
+    var key = route.params;
+    var postData = {
+      title: title,
+      contents: contents,
+      // pass: pass,
+      rating: rating,
+      regdate: new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, '')
+    }
+    var updates = { key };
+    updates[`리뷰목록/${id}/` + key] = postData;
+
+    return database.ref().update(updates);
   }
 
   // Modal useState
   const [visible, setVisible] = useState(false);
 
   // Rating Component
-  const [defaultRating, setDefaultRating] = useState('2');
-  const [maxRating] = useState(['1', '2', '3', '4', '5']);
+  const [defaultRating, setDefaultRating] = useState(2);
+  const [maxRating] = useState([1, 2, 3, 4, 5]);
 
   const starImgFilled = "../assets/star_filled.png";
   const starImgCorner = "../assets/star_corner.png";
@@ -66,7 +81,7 @@ export default function review() {
   const CustomRatingBar = () => {
     return (
       <View style={styles.customRatingBarStyle}>
-        {maxRating.map((items) => {
+        {maxRating.map((items, key) => {
           return (
             <TouchableOpacity
               activeOpacity={0.7}
@@ -130,15 +145,24 @@ export default function review() {
   return (
     <SafeAreaView>
       <View style={tw`bg-white h-full`}>
-        <View style={tw`top-3`}>
-          <Image 
-            style={{width:100, height:100, 
-            resizeMode:'contain', left:'10%', top:'20%'}} 
-            source={require('./gaja.png')}>
-          </Image>
+        <View style={{ padding: 5, left: '33%' }}>
+          <Image
+            style={{
+              width: 100,
+              height: 100,
+              resizeMode: 'contain'
+            }}
+            source={require('../screens/gaja.png')}
+          />
         </View>
+        <TouchableOpacity style={tw`bg-black absolute top-16 left-4 p-3 mt-2 
+                  rounded-full`}
+          onPress={() => { navigation.navigate('HomeScreen') }}
+        >
+          <AntDesign name="home" size={20} color="white" />
+        </TouchableOpacity>
         <TextInput
-          placeholder="title"
+          placeholder='title'
           value={title}
           onChangeText={(text) => setTitle(text)}
           style={styles.input}
@@ -150,7 +174,7 @@ export default function review() {
           style={styles.input}
         /> */}
         <TextInput
-          placeholder="contents"
+          placeholder='contents'
           value={contents}
           onChangeText={(text) => setContents(text)}
           style={styles.inputReview}
@@ -194,7 +218,7 @@ export default function review() {
                 <Text
                   style={tw`text-white font-semibold text-lg`}
                 >
-                  Rating
+                  별점 주기
                 </Text>
               </TouchableOpacity>
             </ModalOptions>
@@ -211,7 +235,7 @@ export default function review() {
               navigation.navigate("ReviewList");
             }}
           >
-            <Text style={styles.text}>저장</Text>
+            <Text style={styles.text}>수정</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -1,8 +1,10 @@
 import React, {useEffect,useState} from 'react'
 import { Image, StyleSheet,FlatList, Text, View,TouchableOpacity } from 'react-native';
+import tw from 'tailwind-react-native-classnames';
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/core'
 import {database} from '../firebase';
 import * as firebase from "firebase";
-import { useNavigation } from '@react-navigation/core'
 import {auth} from '../firebase';
 
 const ReviewList = () => {
@@ -67,7 +69,7 @@ const ReviewList = () => {
                 style={styles.button}
                 onPress={() => {
                   setData();
-                  navigation.navigate("Review", item.key);
+                  navigation.navigate("UpdateReview", item.key);
                 }}
               >
                 <Text style={styles.text}>수정</Text>
@@ -78,14 +80,33 @@ const ReviewList = () => {
       }
 
     return (
-        <View style={{marginTop:'20%'}}>
+      <View style={tw`bg-white h-full`}>
+        <View style={{padding: 5, left:'33%'}}>
+          <Image
+            style={{
+            width: 100,
+            height: 100,
+            resizeMode: 'contain'
+            }}
+            source={require('../screens/gaja.png')}
+          />
+        </View>
+        <TouchableOpacity style={tw`bg-black absolute top-16 left-4 p-3 mt-2 
+                  rounded-full`}
+          onPress={() => { navigation.navigate('HomeScreen') }}
+        >
+          <AntDesign name="home" size={20} color="white" />
+        </TouchableOpacity>
+        <View style={tw`border-t border-gray-200 flex-shrink mt-5`}/>
+        <View style={{ marginTop:'5%' }}>
           <TouchableOpacity
-               style={styles.button} 
-               onPress={() => navigation.navigate("RewriteReview")}>
-                <Text style={styles.text}>새글작성</Text>
-              </TouchableOpacity>
-            <FlatList data={data} renderItem={renderItem}/>
-          </View>
+            style={styles.button}
+            onPress={() => navigation.navigate("Review")}>
+            <Text style={styles.text}>새글작성</Text>
+          </TouchableOpacity>
+          <FlatList data={data} renderItem={renderItem} />
+        </View>
+      </View>
     )
 }
 

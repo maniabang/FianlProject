@@ -5,7 +5,7 @@ import * as Firebase from 'firebase';
 import { ActivityIndicator } from 'react-native';
 import  {firebaseConfig} from '../firebase';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
+import { useNavigation } from "@react-navigation/core";
 
 const InfoScreen = () => {
   if(!Firebase.apps.length) {
@@ -13,6 +13,7 @@ const InfoScreen = () => {
   }
   const [image, setImage] = useState('');
   const [uploading, setUploading] = useState(false);
+  const navigation = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -52,6 +53,8 @@ const InfoScreen = () => {
       xhr.responseType = 'blob';
       xhr.open('GET', image, true);
       xhr.send(null);
+      alert('업로드가 완료되었습니다!');
+      navigation.navigate("UserScreen");
     });
 
     const ref = Firebase.storage().ref().child('/test');
@@ -86,7 +89,9 @@ const InfoScreen = () => {
           </Text>
         </TouchableOpacity>
         {!uploading?  
-        <TouchableOpacity style={styles.button} onPress={uploadImage}>
+        <TouchableOpacity style={styles.button} 
+        onPress={uploadImage}
+        >
           <Text style={styles.text}>
             이미지 업로드
           </Text>

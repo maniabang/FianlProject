@@ -1,17 +1,16 @@
 import React, {useState, useEffect, useRef} from "react";
-import { Image, SafeAreaView, Text, View, Animated } from "react-native";
+import { Image, SafeAreaView, Text, View, Animated, LogBox } from "react-native";
 import {database, ref} from '../firebase';
 import { useNavigation } from '@react-navigation/native';
-import { LogBox } from "react-native";
 import { auth } from "../firebase";
 
 LogBox.ignoreAllLogs();
 const dbRef = database.ref();
-const id = auth.currentUser?.email.split('@')[0];
+// const id = auth.currentUser?.email.split('@')[0];
 let driver;
 let props;
 
-dbRef.child('Clients').child('madmanno').get().then((snapshot) => {
+dbRef.child('Clients').child('maniabang').get().then((snapshot) => {
   if(snapshot.exists()) {
     driver = snapshot.val();
   } else {

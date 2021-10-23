@@ -24,8 +24,8 @@ const UserScreen = () => {
 
   return (
     <SafeAreaView style={tw`bg-white h-full`}> 
-      <TouchableOpacity style={tw`bg-gray-900 absolute top-16 left-4 p-3 mt-2 
-            rounded-full shadow-lg z-50`}
+      <TouchableOpacity style={tw`bg-black absolute top-16 left-4 p-3 mt-2 
+            rounded-full`}
           onPress={() => {navigation.navigate('HomeScreen')}}    
         >
         <AntDesign name="home" size={20} color="white" />

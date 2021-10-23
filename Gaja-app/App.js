@@ -15,8 +15,8 @@ import UserScreen from './screens/UserScreen';
 import InfoScreen from './screens/InfoScreen';
 import ConnectScreen from './screens/ConnectScreen';
 import ReviewList from './screens/ReviewList';
+import UpdateReview from './screens/UpdateReview';
 import Review from './screens/Review';
-import RewriteReview from './screens/RewriteReview';
 
 export default function App() {
 
@@ -94,16 +94,16 @@ export default function App() {
                 }}
               />
               <Stack.Screen 
-                name="Review"
+                name='Review'
                 component={Review}
+                options={{headerShown: false,}}
+              />
+              <Stack.Screen 
+                name="UpdateReview"
+                component={UpdateReview}
                 options={{
                   headerShown: false,
                 }}
-              />
-              <Stack.Screen 
-                name='RewriteReview'
-                component={RewriteReview}
-                options={{headerShown: false,}}
               />
             </Stack.Navigator>
           </KeyboardAvoidingView>

@@ -14,17 +14,18 @@ import {
 import { useNavigation } from "@react-navigation/core";
 import { database } from "../firebase";
 import tw from "tailwind-react-native-classnames";
+import { AntDesign } from '@expo/vector-icons';
 import { auth } from "../firebase";
 import { ref } from '../firebase';
 
-export default function review({ route }) {
+export default function review() {
   const [title, setTitle] = useState("");
-  //  const [pass, setPass] = useState("");
   const [contents, setContents] = useState("");
-  const [rating, setRating] = useState("");
   const [id] = useState(auth.currentUser?.email.split('@')[0]);
-  const [data, setData] = useState("");
   const [img, setImg] = useState('');
+  const [rating, setRating] = useState("");
+  
+  // 데이터 불러오기
   const navigation = useNavigation();
 
   ref.child('/test').getDownloadURL().then(function (url) {
@@ -41,26 +42,23 @@ export default function review({ route }) {
   });
 
   function reviewlist() {
-    var key = route.params;
-    var postData = {
-      title: title,
-      contents: contents,
-      // pass: pass,
-      rating: rating,
-      regdate: new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, '')
-    }
-    var updates = {key};
-    updates[`리뷰목록/${id}/` + key] = postData;
-
-    return database.ref().update(updates);
+    database
+      .ref(`리뷰목록/${id}`)
+      .push({
+        title: title,
+        // pass: pass,
+        contents: contents,
+        rating: rating,
+        regdate: new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, ''),
+      });
   }
 
   // Modal useState
   const [visible, setVisible] = useState(false);
 
   // Rating Component
-  const [defaultRating, setDefaultRating] = useState(2);
-  const [maxRating] = useState([1, 2, 3, 4, 5]);
+  const [defaultRating, setDefaultRating] = useState('2');
+  const [maxRating] = useState(['1', '2', '3', '4', '5']);
 
   const starImgFilled = "../assets/star_filled.png";
   const starImgCorner = "../assets/star_corner.png";
@@ -68,7 +66,7 @@ export default function review({ route }) {
   const CustomRatingBar = () => {
     return (
       <View style={styles.customRatingBarStyle}>
-        {maxRating.map((items, key) => {
+        {maxRating.map((items) => {
           return (
             <TouchableOpacity
               activeOpacity={0.7}
@@ -132,25 +130,28 @@ export default function review({ route }) {
   return (
     <SafeAreaView>
       <View style={tw`bg-white h-full`}>
-        <View style={tw`top-3`}>
-          <Image 
-            style={{width:100, height:100, 
-            resizeMode:'contain', left:'10%', top:'20%'}} 
-            source={require('./gaja.png')}>
-          </Image>
+        <View style={{padding: 5, left:'33%'}}>
+          <Image
+            style={{
+            width: 100,
+            height: 100,
+            resizeMode: 'contain'
+            }}
+            source={require('../screens/gaja.png')}
+          />
         </View>
+        <TouchableOpacity style={tw`bg-black absolute top-16 left-4 p-3 mt-2 
+                  rounded-full`}
+          onPress={() => { navigation.navigate('HomeScreen') }}
+        >
+          <AntDesign name="home" size={20} color="white" />
+        </TouchableOpacity>
         <TextInput
           placeholder="title"
           value={title}
           onChangeText={(text) => setTitle(text)}
           style={styles.input}
         />
-        {/* <TextInput
-          placeholder="pass"
-          value={pass}
-          onChangeText={(text) => setPass(text)}
-          style={styles.input}
-        /> */}
         <TextInput
           placeholder="contents"
           value={contents}
@@ -196,7 +197,7 @@ export default function review({ route }) {
                 <Text
                   style={tw`text-white font-semibold text-lg`}
                 >
-                  Rating
+                  별점 주기
                 </Text>
               </TouchableOpacity>
             </ModalOptions>
@@ -213,7 +214,7 @@ export default function review({ route }) {
               navigation.navigate("ReviewList");
             }}
           >
-            <Text style={styles.text}>수정</Text>
+            <Text style={styles.text}>저장</Text>
           </TouchableOpacity>
         </View>
       </View>
