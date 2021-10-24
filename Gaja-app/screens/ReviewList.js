@@ -29,7 +29,6 @@ const ReviewList = () => {
               key:child.key,
               title:child.val().title,
               contents:child.val().contents,
-              pass:child.val().pass,
               regdate:child.val().regdate,
               rating: child.val().rating
             })
@@ -37,9 +36,8 @@ const ReviewList = () => {
           setData(tmp);
         })
       },[])
-      //source={{ uri:image ? image:null}}
-      // 데이터 불러오기 펑션
 
+      // 데이터 불러오기 펑션
       const renderItem = ({item}) => {
         return (
           <View>

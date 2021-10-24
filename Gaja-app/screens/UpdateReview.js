@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import {
   StyleSheet,
-  Button,
   View,
   Modal,
   Image,
@@ -58,7 +57,6 @@ export default function review({ route }) {
     var postData = {
       title: title,
       contents: contents,
-      // pass: pass,
       rating: rating,
       regdate: new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, '')
     }
@@ -102,6 +100,8 @@ export default function review({ route }) {
       </View>
     );
   };
+
+  // Modal ArrowFunction
   const ModalOptions = ({ visible, children }) => {
     const [showModal, setShowModal] = useState(visible);
     const scaleValue = useRef(new Animated.Value(0)).current;
@@ -167,12 +167,6 @@ export default function review({ route }) {
           onChangeText={(text) => setTitle(text)}
           style={styles.input}
         />
-        {/* <TextInput
-          placeholder="pass"
-          value={pass}
-          onChangeText={(text) => setPass(text)}
-          style={styles.input}
-        /> */}
         <TextInput
           placeholder='contents'
           value={contents}
