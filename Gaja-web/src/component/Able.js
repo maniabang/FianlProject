@@ -2,7 +2,7 @@ import backGround from '../img/a-ble.jpg';
 export default function Able() {
 
     return (
-        <div className="sub-sqaure" style={{backgroundImage: `url(${backGround})`}}>
+        <div className="sub-square" style={{backgroundImage: `url(${backGround})`}}>
             <div className="sub-circle">
                 <div>
                     <span className="sub-circle-word">

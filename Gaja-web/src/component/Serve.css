@@ -57,6 +57,15 @@
     z-index: 0;
 }
 
+.main-main7{
+    height: 100vh;
+    background-image : url("../img/firebase.png");
+    background-size : cover;
+    position: relative;
+    display: flex;
+    z-index: 0;
+}
+
 .main-circle{
     width : 428px;
     height : 428px;

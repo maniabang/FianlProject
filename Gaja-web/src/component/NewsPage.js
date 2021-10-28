@@ -3,9 +3,9 @@ import SwiperCore, { Autoplay } from "swiper";
 import "swiper/swiper.scss";
 
 import styles from "../css/Slider.module.css";
-import img1 from "../img/news_1.jpg"; 
-import img2 from "../img/news_2.jpg";
-import img3 from "../img/news_3.jpg";
+import img1 from "../img/newsUt.jpg"; 
+import img2 from "../img/newsKakaot.jpg";
+import img3 from "../img/newsGrab.jpg";
 
 SwiperCore.use([Autoplay]);
 
@@ -23,14 +23,6 @@ export default function NewsPage(){
         <SwiperSlide><img src={img3} className={styles.imgNewsPage} alt=''/></SwiperSlide>
 
         </Swiper>
-        </div>
-        <div className={styles.NewsPageLowDisplay}>
-            <div>
-                <h3>
-                    News center
-                </h3>
-                <input type="text" placeholder="search News About DiDi"></input>
-            </div>
         </div>
 
 

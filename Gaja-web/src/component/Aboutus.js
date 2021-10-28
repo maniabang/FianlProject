@@ -1,7 +1,7 @@
 import backGround from '../img/about-us.jpg';
 export default function Aboutus() {
     return (
-        <div className="sub-sqaure" style={{backgroundImage: `url(${backGround})`}}>
+        <div className="sub-square" style={{backgroundImage: `url(${backGround})`}}>
             <div className="sub-circle">
                 <div>
                     <span className="sub-circle-word">

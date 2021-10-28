@@ -55,10 +55,6 @@ export default function NewsLeanMore(){
           mobility transformation, which has great industrial significance and
           broad market prospects,” said Gu Huinan, General Manager of GAC Aion.
         </div>
-        <div className={styles.Bnt}>
-            <button>Previous Post</button>
-            <button>Next Post</button>
-        </div>
       </>
     );
 }

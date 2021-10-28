@@ -10,8 +10,8 @@ export default function Technology({flag}) {
         onMouseOver={() => {setSubT(true);}} onMouseOut={() => {setSubT(false);}}>
             <h4 className={menuRemain}>TECHNOLOGY</h4>
             <h4 className={subT ? remain : remainNot}><Link to="/technology/react">React</Link></h4>
-            <h4 className={subT ? remain : remainNot}><Link to="/technology/google">Google</Link></h4>
-            <h4 className={subT ? remain : remainNot}><Link to="/technology/json-server">Json Server</Link></h4>
+            <h4 className={subT ? remain : remainNot}><Link to="/technology/google">Google Api</Link></h4>
+            <h4 className={subT ? remain : remainNot}><Link to="/technology/json-server">Firebase</Link></h4>
             <h4 className={subT ? remain : remainNot}><Link to="/technology/nodejs">Node js</Link></h4>
             <h4 className={subT ? remain : remainNot}><Link to="/technology/redux">Redux</Link></h4>
         </div>

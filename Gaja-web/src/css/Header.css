@@ -5,14 +5,13 @@
 }
 
 .logo {
-    color: red; 
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .menu {
-    color: rgb(26 25 25);
+    color: rgb(0 0 0);
     position: absolute;
-    margin-top: 50%;
-    left: 1210px;
+    margin-top: 4%;
+    left: 95%;
     cursor: pointer;
 }

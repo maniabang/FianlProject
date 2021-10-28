@@ -1,7 +1,7 @@
 import backGround from '../img/j-ourney.jpg';
 export default function Joureny() {
     return (
-        <div className="sub-sqaure" style={{backgroundImage: `url(${backGround})`}}>
+        <div className="sub-square" style={{backgroundImage: `url(${backGround})`}}>
             <div className="sub-circle">
                 <div>
                     <span className="sub-circle-word">

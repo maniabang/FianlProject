@@ -1,7 +1,7 @@
 import backGround from '../img/g-taxi.jpg';
 export default function Gtaxi() {
     return (
-        <div className="sub-sqaure" style={{backgroundImage: `url(${backGround})`}}>
+        <div className="sub-square" style={{backgroundImage: `url(${backGround})`}}>
             <div className="sub-circle">
                 <div>
                     <span className="sub-circle-word">

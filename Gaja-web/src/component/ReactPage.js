@@ -2,7 +2,7 @@ import '../css/Subpage.css'
 import backGround from '../img/react.jpg';
 export default function ReactPage() {
     return (
-        <div className="sub-sqaure" style={{backgroundImage: `url(${backGround})`}}>
+        <div className="sub-square" style={{backgroundImage: `url(${backGround})`}}>
             <div className="sub-circle">
                 <div>
                     <span className="sub-circle-word">

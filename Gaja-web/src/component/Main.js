@@ -10,7 +10,6 @@ export default function Main() {
                         <span className="circle-word">
                             MORE THAN A JOURNEY
                         </span>
-                        <div className="circle-search">검색</div>
                     </div>
                 </div>
             </div>

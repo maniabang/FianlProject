@@ -12,7 +12,7 @@ import Journey from './Journey';
 import Able from './Able';
 import ReactPage from './ReactPage';
 import Google from './google';
-import Json from './Json';
+import Json from './firebase';
 import Nodejs from './Nodejs';
 import Redux from './Redux';
 import NewsMain from './NewsMain';
@@ -22,12 +22,12 @@ import Taxi from "./Taxi";
 import Black from "./Black";
 import Green from "./Green";
 import Sending from "./Sending";
-import Board_review from "./board/Board_review";
-import Board_submit from "./board/Board_submit";
-import Board_list from "./board/Board_list";
-import Board_driver from "./board/Board_driver";
-import Board_edit from "./board/Board_edit";
-import EmptyPage from "./board/EmptyPage";
+// import Board_review from "./board/Board_review";
+// import Board_submit from "./board/Board_submit";
+// import Board_list from "./board/Board_list";
+// import Board_driver from "./board/Board_driver";
+// import Board_edit from "./board/Board_edit";
+// import EmptyPage from "./board/EmptyPage";
 import NewsPage from './NewsPage';
 import NewsLearnMore from './NewsLearnMore';
 
@@ -111,7 +111,7 @@ export default function View() {
                     <Route path="/sending">
                         <Sending />
                     </Route>
-                    <Route path="/board_review">
+                    {/* <Route path="/board_review">
                         <Board_review />
                     </Route>
                     <Route path="/board_submit">
@@ -128,7 +128,7 @@ export default function View() {
                     </Route>
                     <Route>
                         <EmptyPage />
-                    </Route>
+                    </Route> */}
                 </Switch>
             </div>
         </BrowserRouter>
