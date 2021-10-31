@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, View, SafeAreaView, Image, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, SafeAreaView, Image} from 'react-native'
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -44,6 +44,7 @@ const HomeScreen = ({route}) => {
                     style={{
                         width: 100,
                         height: 100,
+                        marginTop: 40,
                         resizeMode: 'contain'
                     }}
                     source={require('./gaja.png')}

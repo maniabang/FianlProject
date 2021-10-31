@@ -3,10 +3,8 @@ import React, {useState} from "react";
 import { useNavigation } from "@react-navigation/core"; 
 import tw from 'tailwind-react-native-classnames';
 import {auth} from '../firebase';
-import { AntDesign } from '@expo/vector-icons';
-import { database } from '../firebase'
-import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 
 const UserScreen = () => {
@@ -24,25 +22,26 @@ const UserScreen = () => {
 
   return (
     <SafeAreaView style={tw`bg-white h-full`}> 
-      <TouchableOpacity style={tw`bg-black absolute top-16 left-4 p-3 mt-2 
-            rounded-full`}
-          onPress={() => {navigation.navigate('HomeScreen')}}    
+      <View>
+        <TouchableOpacity
+          onPress={() => {navigation.navigate('HomeScreen')}}
         >
-        <AntDesign name="home" size={20} color="white" />
-      </TouchableOpacity>
-     
-      <View style={{padding: 5, left:'33%'}}>
-      <Image
-        style={{
-          width: 100,
-          height: 100,
-          resizeMode: 'contain'
-          }}
-          source={require('../screens/gaja.png')}
-      />
+          <Image
+            style={{
+              width: 200,
+              height: 200,
+              marginTop: 30,
+              left:'23%',
+              resizeMode: 'contain'
+            }}
+            source={require('../screens/gaja.png')}
+          />
+        </TouchableOpacity>
       </View>
       <View>
-        <TouchableOpacity style={{top:'60%', left:'6%'}} onPress={() => {navigation.navigate('InfoScreen')}}>
+        <TouchableOpacity style={{top:'60%', left:'6%'}} 
+          onPress={() => {navigation.navigate('InfoScreen')}}
+        >
           <FontAwesome name="photo" size={24} color="black" />
         </TouchableOpacity>
         <Text style={{left:'18%', top:'10%'}}>{str[0]}님 로그인이 되었습니다.</Text>
@@ -68,6 +67,14 @@ const UserScreen = () => {
           <Text style={styles.textR}>로그아웃</Text>
         </TouchableOpacity>
       </View>
+      <View>
+        <TouchableOpacity 
+          style={tw`bg-black absolute top-10 right-4 p-3 mt-2 rounded-full`}
+          onPress={() => {navigation.navigate('ChatbotScreen')}}
+        >
+          <FontAwesome5 name="robot" size={24} color="white" />
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   )
 }
@@ -76,11 +83,11 @@ export default UserScreen
 
 const styles = StyleSheet.create({
   buttonL:{
-      backgroundColor:'black',
-      width:'100%',
-      padding:10,
-      borderRadius:10,
-      alignItems: 'center'
+    backgroundColor:'black',
+    width:'100%',
+    padding:10,
+    borderRadius:10,
+    alignItems: 'center'
   },
   buttonR: {
     backgroundColor:'white',

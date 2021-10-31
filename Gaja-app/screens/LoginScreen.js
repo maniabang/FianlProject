@@ -32,7 +32,15 @@ const LoginScreen = () => {
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
       <View>
-        <Image style={{width:200, height:200, resizeMode:'contain', left:'23%'}} source={require('./gaja.png')}></Image>
+        <Image 
+          style={{
+            width:200, 
+            height:200,
+            left:'23%', 
+            resizeMode:'contain', 
+          }} 
+            source={require('./gaja.png')}
+        />
       </View>
       <TextInput 
       style={styles.input} 

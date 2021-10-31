@@ -51,7 +51,7 @@ const RideOptionsCard = () => {
             <TouchableOpacity 
             onPress={() => navigation.navigate('NavigateCard')}
             style={tw`absolute top-3 left-5 z-50 p-3 rounded-full`}>
-                <Icon name="chevron-left" type="fontawesome" />
+            <Icon name="chevron-left" type="fontawesome" />
             </TouchableOpacity>
             <Text style={tw`text-center py-5 text-xl`}>차량 선택 - {travelTimeInformation?.distance?.text}</Text>
             </View>

@@ -17,6 +17,7 @@ import ConnectScreen from './screens/ConnectScreen';
 import ReviewList from './screens/ReviewList';
 import UpdateReview from './screens/UpdateReview';
 import Review from './screens/Review';
+import ChatbotScreen from './screens/ChatbotScreen';
 
 export default function App() {
 
@@ -101,6 +102,13 @@ export default function App() {
               <Stack.Screen 
                 name="UpdateReview"
                 component={UpdateReview}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen 
+                name="ChatbotScreen"
+                component={ChatbotScreen}
                 options={{
                   headerShown: false,
                 }}
