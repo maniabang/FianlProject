@@ -28,7 +28,7 @@ import Sending from "./Sending";
 // import Board_driver from "./board/Board_driver";
 // import Board_edit from "./board/Board_edit";
 // import EmptyPage from "./board/EmptyPage";
-// testtest
+// testToken
 import NewsPage from './NewsPage';
 import NewsLearnMore from './NewsLearnMore';
 
